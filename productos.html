@@ -1,0 +1,40 @@
+<!DOCTYPE html>  
+<html lang="es">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Lista de Productos</title>  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+</head>  
+<body>  
+    <div class="container">  
+        <h1 class="mt-5">Lista de Productos</h1>  
+        <table class="table">  
+            <thead>  
+                <tr>  
+                    <th>ID</th>  
+                    <th>Nombre</th>  
+                    <th>Precio</th>  
+                    <th>Stock</th>  
+                    <th>Acciones</th>  
+                </tr>  
+            </thead>  
+            <tbody>  
+                {% for producto in productos %}  
+                <tr>  
+                    <td>{{ producto[0] }}</td>  
+                    <td>{{ producto[1] }}</td>  
+                    <td>{{ producto[2] }}</td>  
+                    <td>{{ producto[3] }}</td>  
+                    <td>  
+                        <a href="/productos/eliminar/{{ producto[0] }}" class="btn btn-danger">Eliminar</a>  
+                    </td>  
+                </tr>  
+                {% endfor %}  
+            </tbody>  
+        </table>  
+        <a href="/productos/agregar" class="btn btn-primary">Agregar Producto</a>  
+        <button type="button" class="btn btn-secondary mt-3" onclick="window.location.href='/dashboard'">Volver al Dashboard</button>  
+    </div>  
+</body>  
+</html>  
